@@ -4,8 +4,6 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 // import { AxesHelper } from 'three';
 // import backgroundImg from '../assets/space.jpeg';
-// import sun from '../assets/sun.jpeg';
-// import mirrorball from '../assets/mirror.jpeg';
 import water from '../assets/water.jpeg';
 export default class Experience {
     canvas: any;

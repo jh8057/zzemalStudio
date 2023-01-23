@@ -4,44 +4,47 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 // import { AxesHelper } from 'three';
 // import backgroundImg from '../assets/space.jpeg';
-import water from '../assets/water.jpeg';
+import mirror from '../assets/mirror.jpeg';
+// import water from '../assets/water.jpeg';
 export default class Experience {
     canvas: any;
+    lightColor: number;
 
-    constructor(canvas: any) {
+    constructor(canvas: any, lightColor?: number) {
         this.canvas = canvas;
+        this.lightColor = lightColor ? lightColor : 0x8c0c38;
 
         //basic setting
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-
         const renderer = new THREE.WebGLRenderer({
             canvas: canvas as HTMLCanvasElement,
-            antialias: true,
+            // antialias: true,
         });
+        //camera controll
+        // const controls = new OrbitControls(camera, renderer.domElement);
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
         camera.position.setZ(100);
         camera.position.setY(0);
         camera.position.setX(0);
+        // controls.update();
 
+        //shadow
         renderer.shadowMap.enabled = true;
-
         renderer.render(scene, camera);
 
         //light
-        const poinLight = new THREE.PointLight(0xae9366, 3, 20);
+        const poinLight = new THREE.PointLight(this.lightColor, 5, 15);
         poinLight.position.set(4.4, 6.8, 0.2);
 
         // const poinLight2 = new THREE.PointLight(0xffffff, 2, 30);
         // poinLight2.position.set(-1, 8, -18);
 
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        const ambientLight = new THREE.AmbientLight(0xae9366, 0.1);
         // scene.add(poinLight, poinLight2);
         scene.add(poinLight, ambientLight);
-
-        //camera controll
-        // const controls = new OrbitControls(camera, renderer.domElement);
+        // scene.add(poinLight);
 
         //background
         scene.background = new THREE.Color(0xffffff);
@@ -54,25 +57,30 @@ export default class Experience {
         const material = new THREE.MeshStandardMaterial({ color: 0xae9366 }); //light apply to standardMaterial
         const torus = new THREE.Mesh(geometry, material);
         // torus.castShadow = true;
-
         scene.add(torus);
+
+        // make cylinder
+        const geometry2 = new THREE.CylinderGeometry(5, 5, 20, 32);
+        const material2 = new THREE.MeshStandardMaterial({ color: 0xae9366 });
+        const cylinder = new THREE.Mesh(geometry2, material2);
+        cylinder.position.set(0, -10, 10);
+        scene.add(cylinder);
 
         // // make Sphere
         const sphereGeometry = new THREE.SphereGeometry(4);
-        const sphereMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, wireframe: false, map: textureLoader.load(water) }); //light apply to standardMaterial
+        const sphereMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, wireframe: false, map: textureLoader.load(mirror) }); //light apply to standardMaterial
         const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
         sphere.position.set(0, 10, -10);
+        scene.add(sphere);
         // torus.castShadow = true;
 
         //make plane
-        const planeGeometry = new THREE.PlaneGeometry(30, 30);
-        const splaneMaterial = new THREE.MeshStandardMaterial({ color: 0xae9366 }); //light apply to standardMaterial
-        const plane = new THREE.Mesh(planeGeometry, splaneMaterial);
-        plane.rotation.x = -0.5 * Math.PI;
+        // const planeGeometry = new THREE.PlaneGeometry(30, 30);
+        // const splaneMaterial = new THREE.MeshStandardMaterial({ color: 0xae9366 }); //light apply to standardMaterial
+        // const plane = new THREE.Mesh(planeGeometry, splaneMaterial);
+        // plane.rotation.x = -0.5 * Math.PI;
         // plane.receiveShadow = true;
-
-        scene.add(sphere, plane);
-        // scene.background = new THREE.Color(0xffffff);
+        // scene.add(sphere, plane);
 
         // const sphereID = sphere.id;
         //mouse Click
@@ -137,18 +145,20 @@ export default class Experience {
 
             //animation
             // torus.rotation.x += 0.01;
-            // torus.rotation.y += 0.01;
+            torus.rotation.y += 0.01;
+            cylinder.rotation.y += 0.01;
 
             //camera moving
             // camera.rotation.x += 0.01;
             // camera.rotation.y += 0.01;
-            camera.rotation.z += 0.01;
+            // camera.rotation.z += 0.01;
 
             camera.position.x = cursor.x * 5;
             camera.position.y = cursor.y * 5;
-            // camera.position.z = 100 + cursor.y * 10;
+            camera.position.z = 100 + cursor.y * 10;
             // camera.lookAt();
 
+            // controls.update();
             renderer.render(scene, camera);
         }
 

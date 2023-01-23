@@ -119,13 +119,37 @@ export default class Experience {
         //         animate();
         //     }
         // );
+
+        const cursor = {
+            x: 0,
+            y: 0,
+        };
+        let cnt = 0;
+        window.addEventListener('mousemove', (event) => {
+            cnt++;
+            cursor.x = event.clientX / window.innerWidth - 0.5;
+            cursor.y = -(event.clientY / window.innerHeight - 0.5);
+            // ThreeJS에서와 브라우저에서 y축을 음양의 방향이 서로 다르므로 -1을 곱해준다.
+
+            if (cnt % 181 === 0) console.log('X:', cursor.x, 'Y:', cursor.y);
+        });
+
         function animate() {
             requestAnimationFrame(animate);
 
             //animation
-            torus.rotation.x += 0.01;
-            torus.rotation.y += 0.01;
-            torus.rotation.z += 0.01;
+            // torus.rotation.x += 0.01;
+            // torus.rotation.y += 0.01;
+
+            //camera moving
+            // camera.rotation.x += 0.01;
+            // camera.rotation.y += 0.01;
+            camera.rotation.z += 0.01;
+
+            camera.position.x = cursor.x * 5;
+            camera.position.y = cursor.y * 5;
+            // camera.position.z = 100 + cursor.y * 10;
+            // camera.lookAt();
 
             renderer.render(scene, camera);
         }

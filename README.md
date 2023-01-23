@@ -4,9 +4,8 @@
 
 ## TODO
 
--   get Store data
--   make svg action
--   use setup
+-   setting Data by Store
+-   setting server - which server..
 
 ## Reference
 

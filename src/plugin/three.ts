@@ -19,13 +19,13 @@ export default class Experience {
 
         const renderer = new THREE.WebGLRenderer({
             canvas: canvas as HTMLCanvasElement,
-            // antialias: true,
+            antialias: true,
         });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.position.setZ(10);
-        camera.position.setY(20);
-        camera.position.setX(50);
+        camera.position.setZ(100);
+        camera.position.setY(0);
+        camera.position.setX(0);
 
         renderer.shadowMap.enabled = true;
 
@@ -38,12 +38,15 @@ export default class Experience {
         // const poinLight2 = new THREE.PointLight(0xffffff, 2, 30);
         // poinLight2.position.set(-1, 8, -18);
 
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
         // scene.add(poinLight, poinLight2);
         scene.add(poinLight, ambientLight);
 
         //camera controll
-        const controls = new OrbitControls(camera, renderer.domElement);
+        // const controls = new OrbitControls(camera, renderer.domElement);
+
+        //background
+        scene.background = new THREE.Color(0xffffff);
 
         const textureLoader = new THREE.TextureLoader();
         // scene.background = textureLoader.load(backgroundImg);
@@ -55,7 +58,6 @@ export default class Experience {
         // torus.castShadow = true;
 
         scene.add(torus);
-        // scene.background = new THREE.Color(0xffffff);
 
         // // make Sphere
         const sphereGeometry = new THREE.SphereGeometry(4);

@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
-        path: '/zzemalStudio',
+        path: '/zzemalStudio/',
         name: 'home',
         component: HomeView,
     },

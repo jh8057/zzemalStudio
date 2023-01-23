@@ -130,14 +130,14 @@ export default class Experience {
             x: 0,
             y: 0,
         };
-        let cnt = 0;
+        // let cnt = 0;
         window.addEventListener('mousemove', (event) => {
-            cnt++;
+            // cnt++;
             cursor.x = event.clientX / window.innerWidth - 0.5;
             cursor.y = -(event.clientY / window.innerHeight - 0.5);
             // ThreeJS에서와 브라우저에서 y축을 음양의 방향이 서로 다르므로 -1을 곱해준다.
 
-            if (cnt % 181 === 0) console.log('X:', cursor.x, 'Y:', cursor.y);
+            // if (cnt % 181 === 0) console.log('X:', cursor.x, 'Y:', cursor.y);
         });
 
         function animate() {

@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.app.json",
+  "extends": "@vue/tsconfig/tsconfig.node.json",
   "exclude": [],
   "compilerOptions": {
     "composite": true,

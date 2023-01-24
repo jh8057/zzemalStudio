@@ -1,36 +1,62 @@
-# zzemalvue3
+# zzemalstudio
 
--   Try Vue3 + Vuex + Ts + jest + PWA + AWS
+This template should help get you started developing with Vue 3 in Vite.
 
-## TODO
+## Recommended IDE Setup
 
--   setting Data by Store
--   setting server - which server..
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Reference
+## Type Support for `.vue` Imports in TS
 
--   vue3 : [link](https://v3.ko.vuejs.org/guide/migration/introduction.html)
--   components api : [link](https://v3.ko.vuejs.org/ko-KR/guide/composition-api-introduction.html)
--   spin : [link](https://www.youtube.com/watch?v=_OwJV2xL8M8)
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-## Three.js
+If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
--   Reference : [link](https://www.youtube.com/watch?v=xJAfLdUgdc4&list=PLjcjAqAnHd1EIxV4FSZIiJZvsdrBc1Xho)
--   perpective camera : 가깝고 먼거(깊이)를 화면에서 나타내준다.
--   Ortographic camera : 깊이랑 상관없이 화면에 나타난다.
+1. Disable the built-in TypeScript Extension
+    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
-## blender
+## Customize configuration
 
--   animation : [link](https://www.youtube.com/watch?v=x5an6UV5r9c)
--   animation2 : [link](https://www.youtube.com/watch?v=GByT8ActvDk&t=189s)
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-### Customize configuration
+## Project Setup
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```sh
+npm install
+```
 
-## graphQL
+### Compile and Hot-Reload for Development
 
--   ref : [link](https://www.apollographql.com/docs/intro/platform)
--   generic : [link](https://www.typescriptlang.org/ko/docs/handbook/2/generics.html)
--   sites: [link](https://velog.io/@berrygood/%EB%94%94%EC%9E%90%EC%9D%B8-%EC%B0%B8%EA%B3%A0-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%AA%A8%EC%9D%8C)
--   식품 : [link](http://www.foodsafetykorea.go.kr/api/openApiInfo.do?menu_grp=MENU_GRP31&menu_no=661&show_cnt=10&start_idx=1&svc_no=COOKRCP01)
+```sh
+npm run dev
+```
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
+```
+
+### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+
+```sh
+npm run test:e2e:dev
+```
+
+This runs the end-to-end tests against the Vite development server.
+It is much faster than the production build.
+
+But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
+
+```sh
+npm run build
+npm run test:e2e
+```

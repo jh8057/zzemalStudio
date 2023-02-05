@@ -3,9 +3,19 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 //control camera on Web
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 // import { AxesHelper } from 'three';
+// import {
+//   BloomEffect,
+//   EffectComposer,
+//   EffectPass,
+//   RenderPass,
+//   BlendFunction,
+//   KernelSize,
+// } from "postprocessing";
 // import backgroundImg from '../assets/space.jpeg';
 import mirror from "../assets/mirror.jpeg";
+import smoke from "../assets/smoke.png";
 // import water from '../assets/water.jpeg';
+
 export default class Experience {
   canvas: any;
   lightColor: number;
@@ -16,7 +26,7 @@ export default class Experience {
     this.lightColor = lightColor ? lightColor : 0x352315;
     this.materialColor = materialColor ? materialColor : 0x65350f;
 
-    //basic setting
+    // /** NOTE: basic setting*/
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -27,50 +37,116 @@ export default class Experience {
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas as HTMLCanvasElement,
       // antialias: true,
+      powerPreference: "high-performance",
+      antialias: false,
+      stencil: false,
+      depth: false,
     });
-    //camera controll
+    // /** NOTE: camera controll */
     // const controls = new OrbitControls(camera, renderer.domElement);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.position.setZ(100);
-    camera.position.setY(0);
+    camera.position.setZ(480);
+    camera.position.setY(200);
     camera.position.setX(0);
+
+    // camera.rotation.x = 0;
+    // camera.rotation.y = 0.12;
+    // camera.rotation.z = 0.4;
     // controls.update();
 
-    //shadow
+    // /** NOTE: shadow */
     renderer.shadowMap.enabled = true;
     renderer.render(scene, camera);
 
-    //light
+    // /** NOTE:light */
     const poinLight = new THREE.PointLight(this.lightColor, 5, 15);
     poinLight.position.set(4.4, 6.8, 0.2);
 
     // const poinLight2 = new THREE.PointLight(0xffffff, 2, 30);
     // poinLight2.position.set(-1, 8, -18);
 
-    const ambientLight = new THREE.AmbientLight(0xae9366, 0.2);
+    let directionalLight = new THREE.DirectionalLight(0x667eff, 1.5);
+    // let directionalLight = new THREE.DirectionalLight(0xff8c19);
+    directionalLight.position.set(0, 0, 2);
+
+    let orangeLight = new THREE.PointLight(0xcc6600, 50, 450, 1.7);
+    orangeLight.position.set(100, 100, 100);
+
+    let redLight = new THREE.PointLight(0xd8547e, 50, 450, 1.7);
+    redLight.position.set(100, 200, 150);
+
+    let blueLight = new THREE.PointLight(0x3677ac, 50, 450, 1.7);
+    blueLight.position.set(200, 100, 50);
+
+    // const ambientLight = new THREE.AmbientLight(0xae9366);
+
     // scene.add(poinLight, poinLight2);
-    scene.add(poinLight, ambientLight);
-    // scene.add(poinLight);
+    // scene.add(poinLight, ambientLight);
+    scene.add(directionalLight, orangeLight, redLight, blueLight);
+    // scene.add(directionalLight, blueLight);
 
-    //background
-    scene.background = new THREE.Color(0xffffff);
+    // /** NOTE: fog */
+    scene.fog = new THREE.FogExp2(0x160d08, 0.001); //0x03544e
+    renderer.setClearColor(scene.fog.color);
 
+    // /** NOTE: background */
+    // scene.background = new THREE.Color(0xffffff);
+
+    // /** NOTE: cloud particle */
+    const cloudPraticle: Array<THREE.Mesh> = [];
     const textureLoader = new THREE.TextureLoader();
+    textureLoader.load(smoke, function (texture) {
+      let cloudGeo = new THREE.PlaneGeometry(500, 500);
+      let cloudMaterial = new THREE.MeshLambertMaterial({
+        map: texture,
+        transparent: true,
+      });
+
+      for (let p = 0; p < 30; p++) {
+        const cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
+        cloud.position.set(Math.random() * 800 - 400, 10, Math.random() * 400);
+        cloud.rotation.x = 0;
+        // cloud.rotation.y = 0.24;
+        cloud.rotation.z = Math.random() * 2 * Math.PI;
+        cloud.material.opacity = 0.55;
+        cloudPraticle.push(cloud);
+        scene.add(cloud);
+      }
+    });
+
+    // const bloomEffect = new BloomEffect({
+    //   blendFunction: BlendFunction.COLOR_DODGE,
+    //   kernelSize: KernelSize.SMALL,
+    //   luminanceThreshold: 0.3,
+    //   luminanceSmoothing: 0.75,
+    // });
+    // bloomEffect.blendMode.opacity.value = 1.5;
+
+    // let effectPass = new EffectPass(
+    //   camera,
+    //   bloomEffect
+    // )
+
+    // effectPass.renderToScreen = true
+    // const composer = new EffectComposer(renderer)
+    // composer.addPass(new RenderPass(scene,camera))
+    // composer.addPass(effectPass))
+
     // scene.background = textureLoader.load(backgroundImg);
 
-    // // make torus
-    const geometry = new THREE.TorusGeometry(50, 3, 10, 50);
-    const material = new THREE.MeshLambertMaterial({
-      color: this.materialColor,
-      wireframe: true,
-    }); //light apply to standardMaterial
-    // const material = new THREE.MeshStandardMaterial({ color: 0xae9366 }); //light apply to standardMaterial
-    const torus = new THREE.Mesh(geometry, material);
-    // torus.castShadow = true;
-    scene.add(torus);
+    //  /** NOTE: make torus */
+    // const geometry = new THREE.TorusGeometry(40, 3, 10, 50);
+    // const material = new THREE.MeshLambertMaterial({
+    //   color: this.materialColor,
+    //   wireframe: true,
+    // });
+    // // const material = new THREE.MeshStandardMaterial({ color: 0xae9366 }); //light apply to standardMaterial
+    // const torus = new THREE.Mesh(geometry, material);
+    // // torus.castShadow = true;
+    // scene.add(torus);
 
-    // make cylinder
+    //  /** NOTE: make cylinder */
     // const geometry2 = new THREE.CylinderGeometry(5, 5, 20, 32);
     // const material2 = new THREE.MeshBasicMaterial({ color: 0x352315 });
     // // const material2 = new THREE.MeshStandardMaterial({ color: 0xffc0cb });
@@ -78,7 +154,7 @@ export default class Experience {
     // cylinder.position.set(0, -10, 10);
     // scene.add(cylinder);
 
-    // // // make Sphere
+    //  /** NOTE: make Sphere */
     // const sphereGeometry = new THREE.SphereGeometry(4);
     // const sphereMaterial = new THREE.MeshStandardMaterial({
     //   color: 0xffffff,
@@ -90,7 +166,7 @@ export default class Experience {
     // scene.add(sphere);
     // torus.castShadow = true;
 
-    //make plane
+    // /** NOTE: plane
     // const planeGeometry = new THREE.PlaneGeometry(30, 30);
     // const splaneMaterial = new THREE.MeshStandardMaterial({ color: 0xae9366 }); //light apply to standardMaterial
     // const plane = new THREE.Mesh(planeGeometry, splaneMaterial);
@@ -99,7 +175,7 @@ export default class Experience {
     // scene.add(sphere, plane);
 
     // const sphereID = sphere.id;
-    //mouse Click
+    //  /** NOTE: mouse Click */
     // const mousePosition = new THREE.Vector2();
 
     // window.addEventListener('mousemove', function (e) {
@@ -110,7 +186,7 @@ export default class Experience {
 
     // const rayCaster = new THREE.Raycaster();
 
-    // Instantiate a loader
+    //  /** NOTE: Instantiate a loader
     // const loader = new GLTFLoader();
 
     // let mixer: any;
@@ -142,37 +218,43 @@ export default class Experience {
     //     }
     // );
 
-    const cursor = {
-      x: 0,
-      y: 0,
-    };
-    // let cnt = 0;
-    window.addEventListener("mousemove", (event) => {
-      // cnt++;
-      cursor.x = event.clientX / window.innerWidth - 0.5;
-      cursor.y = -(event.clientY / window.innerHeight - 0.5);
-      // ThreeJS에서와 브라우저에서 y축을 음양의 방향이 서로 다르므로 -1을 곱해준다.
+    //  /** NOTE: follow mouse cursor
+    // const cursor = {
+    //   x: 0,
+    //   y: 0,
+    // };
+    // // let cnt = 0;
+    // window.addEventListener("mousemove", (event) => {
+    //   // cnt++;
+    //   cursor.x = event.clientX / window.innerWidth - 0.5;
+    //   cursor.y = -(event.clientY / window.innerHeight - 0.5);
+    //   // ThreeJS에서와 브라우저에서 y축을 음양의 방향이 서로 다르므로 -1을 곱해준다.
 
-      // if (cnt % 181 === 0) console.log('X:', cursor.x, 'Y:', cursor.y);
-    });
+    //   // if (cnt % 181 === 0) console.log('X:', cursor.x, 'Y:', cursor.y);
+    // });
 
     function animate() {
       requestAnimationFrame(animate);
 
-      //animation
+      //  /** NOTE: animation */
       //   torus.rotation.x += 0.01;
-      torus.rotation.y += 0.01;
+      // torus.rotation.y += 0.01;
       // torus.rotation.z += 0.01;
       //   cylinder.rotation.y += 0.01;
 
-      //camera moving
+      for (let i = 0; i < cloudPraticle.length; i++) {
+        const cloud = cloudPraticle[i];
+        cloud.rotation.z -= 0.001;
+      }
+
+      //  /** NOTE: camera moving */
       // camera.rotation.x += 0.01;
       // camera.rotation.y += 0.01;
       // camera.rotation.z += 0.01;
 
-      camera.position.x = cursor.x * 5;
-      camera.position.y = cursor.y * 5;
-      camera.position.z = 100 + cursor.y * 10;
+      // camera.position.x = cursor.x * 5;
+      // camera.position.y = cursor.y * 5;
+      // camera.position.z = 100 + cursor.y * 10;
       // camera.lookAt();
 
       // controls.update();

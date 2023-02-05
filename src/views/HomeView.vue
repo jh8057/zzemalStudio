@@ -14,6 +14,7 @@ import ThreeJs from "@/components/ThreeJs/three.vue";
 
 <style scoped>
 .center {
+  color: white;
   display: flex;
   flex-direction: column;
   place-items: center;

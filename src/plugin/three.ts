@@ -3,15 +3,6 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 //control camera on Web
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 // import { AxesHelper } from 'three';
-// import {
-//   BloomEffect,
-//   EffectComposer,
-//   EffectPass,
-//   RenderPass,
-//   BlendFunction,
-//   KernelSize,
-// } from "postprocessing";
-// import backgroundImg from '../assets/space.jpeg';
 import mirror from "../assets/mirror.jpeg";
 import smoke from "../assets/smoke.png";
 // import water from '../assets/water.jpeg';
@@ -114,24 +105,6 @@ export default class Experience {
         scene.add(cloud);
       }
     });
-
-    // const bloomEffect = new BloomEffect({
-    //   blendFunction: BlendFunction.COLOR_DODGE,
-    //   kernelSize: KernelSize.SMALL,
-    //   luminanceThreshold: 0.3,
-    //   luminanceSmoothing: 0.75,
-    // });
-    // bloomEffect.blendMode.opacity.value = 1.5;
-
-    // let effectPass = new EffectPass(
-    //   camera,
-    //   bloomEffect
-    // )
-
-    // effectPass.renderToScreen = true
-    // const composer = new EffectComposer(renderer)
-    // composer.addPass(new RenderPass(scene,camera))
-    // composer.addPass(effectPass))
 
     // scene.background = textureLoader.load(backgroundImg);
 

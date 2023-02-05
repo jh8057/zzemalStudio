@@ -44,7 +44,7 @@ export default defineComponent({
   position: fixed;
   top: 0;
   left: 0;
-  height: 120vh;
+  min-height: -webkit-fill-available;
   z-index: -99;
 }
 

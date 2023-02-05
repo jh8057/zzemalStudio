@@ -78,7 +78,7 @@ export default class Experience {
     // scene.add(directionalLight, blueLight);
 
     // /** NOTE: fog */
-    scene.fog = new THREE.FogExp2(0x160d08, 0.001); //0x03544e
+    scene.fog = new THREE.FogExp2(0x000000, 0.001); //0x03544e
     renderer.setClearColor(scene.fog.color);
 
     // /** NOTE: background */

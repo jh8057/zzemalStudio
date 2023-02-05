@@ -1,4 +1,4 @@
-@import './base.css';
+/* @import './base.css'; */
 
 /* #app {
   max-width: 1280px;
@@ -6,7 +6,11 @@
   padding: 1rem;
   font-weight: normal;
 } */
-
+html,
+body{
+ margin : 0;
+ padding : 0;
+}
 a,
 .green {
   text-decoration: none;

@@ -36,3 +36,9 @@ a,
     padding: 0 2rem;
   } */
 }
+
+@media (width < 315px) {
+  h1,h2,h2{
+    width: 200px;
+  }
+}

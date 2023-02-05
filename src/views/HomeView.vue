@@ -51,6 +51,7 @@ main {
   flex-direction: column;
   place-items: center;
   justify-content: center;
+  padding: 80px;
 }
 
 img {

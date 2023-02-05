@@ -19,5 +19,6 @@ import ThreeJs from "@/components/ThreeJs/three.vue";
   place-items: center;
   justify-content: center;
   min-height: 100vh;
+  min-width: 100vw;
 }
 </style>

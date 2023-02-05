@@ -2,7 +2,7 @@
   <main>
     <ThreeJs />
     <div class="center">
-      <h1>D A R L Y _ S T U D I O</h1>
+      <h1>S T U D I O _ D A R L Y</h1>
       <p>2022. 02 OPEN</p>
     </div>
     <div class="test">
@@ -17,6 +17,10 @@
       <h2>느낌 보기 위한 사진3</h2>
       <img src="@/assets/testImage3.jpeg" />
     </div>
+    <div class="test" style="padding-bottom: 40px">
+      <h2>느낌 보기 위한 사진4</h2>
+      <img src="@/assets/testImage4.jpeg" />
+    </div>
   </main>
 </template>
 
@@ -25,14 +29,20 @@ import ThreeJs from "@/components/ThreeJs/three.vue";
 </script>
 
 <style scoped>
+main {
+  width: 100%;
+  height: 100%;
+}
 .center {
   color: white;
   display: flex;
   flex-direction: column;
   place-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: -webkit-fill-available;
   min-width: 100vw;
+  height: 100vh;
+  align-items: center;
 }
 .test {
   display: flex;

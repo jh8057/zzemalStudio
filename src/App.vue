@@ -1,36 +1,22 @@
 <template>
+  <!-- <nav> 
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/editor">Editor</RouterLink>
+    </nav> -->
   <header>
-    <img
-      src="@/assets/Hamburger_icon.svg"
-      alt="bambergur icon"
-      @click="toggleNav"
-    />
-
-    <!-- <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/editor">Editor</RouterLink>
-      </nav>
-    </div> -->
+    <hamburgur-icon />
   </header>
   <RouterView />
 </template>
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
-import { ref } from "vue";
-const showNav = ref(true);
-const toggleNav = () => {
-  showNav.value = !showNav.value;
-};
+import HamburgurIcon from "@/components/Navigator/HamburgurIcon.vue";
 </script>
 <style scoped>
 header {
   position: fixed;
-  line-height: 1.5;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 15px;
 }
 /* header {
   line-height: 1.5;
@@ -48,7 +34,7 @@ header {
   text-align: center;
   margin-top: 2rem;
 } */
-/* 
+/*
 nav a.router-link-exact-active {
   color: var(--color-text);
 }

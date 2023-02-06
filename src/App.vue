@@ -1,30 +1,37 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-</script>
-
 <template>
-  <!-- <header>
+  <header>
     <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
+      src="@/assets/Hamburger_icon.svg"
+      alt="bambergur icon"
+      @click="toggleNav"
     />
 
-    <div class="wrapper">
+    <!-- <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/editor">Editor</RouterLink>
       </nav>
-    </div>
-  </header> -->
+    </div> -->
+  </header>
   <RouterView />
 </template>
-
+<script setup lang="ts">
+import { RouterLink, RouterView } from "vue-router";
+import { ref } from "vue";
+const showNav = ref(true);
+const toggleNav = () => {
+  showNav.value = !showNav.value;
+};
+</script>
 <style scoped>
+header {
+  position: fixed;
+  line-height: 1.5;
+  top: 10px;
+  right: 10px;
+}
 /* header {
   line-height: 1.5;
   max-height: 100vh;

@@ -1,32 +1,48 @@
 <template>
-  <!-- <nav> 
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/editor">Editor</RouterLink>
-    </nav> -->
   <header>
-    <hamburgur-icon />
+    <hamburgur-icon :showMenu="showMenu" @toggle-menu="toggleMenu" />
   </header>
+  <nav>
+    <menu-layer
+      v-show="showMenu"
+      :showMenu="showMenu"
+      @toggle-menu="toggleMenu"
+    />
+  </nav>
   <RouterView />
+  <ThreeJs />
 </template>
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
+import { ref } from "vue";
 import HamburgurIcon from "@/components/Navigator/HamburgurIcon.vue";
+import MenuLayer from "@/components/Navigator/MenuLayer.vue";
+import ThreeJs from "@/components/ThreeJs/three.vue";
+const showMenu = ref(false);
+
+const toggleMenu = () => {
+  showMenu.value = !showMenu.value;
+  if (showMenu.value == true && window.innerWidth < 500) {
+    let body = document.querySelector("body") as HTMLElement;
+    body.classList.add("bodyNoScroll");
+  } else {
+    let body = document.querySelector("body") as HTMLElement;
+    body.classList.remove("bodyNoScroll");
+  }
+};
 </script>
 <style scoped>
 header {
   position: fixed;
   top: 20px;
   right: 15px;
+  z-index: 10;
 }
 /* header {
   line-height: 1.5;
   max-height: 100vh;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-} */
 
 /* nav {
   width: 100%;

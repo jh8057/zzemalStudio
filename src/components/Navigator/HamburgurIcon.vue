@@ -6,6 +6,7 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     @click="toggleNav"
+    class="hamburgurIcon"
   >
     <g id="Group1">
       <line
@@ -17,7 +18,7 @@
         stroke="white"
         stroke-width="3"
         stroke-linecap="round"
-        :class="[{ changed1: showNav }]"
+        :class="[{ changed1: showMenu }]"
       />
       <line
         id="Line3"
@@ -28,7 +29,7 @@
         stroke="white"
         stroke-width="3"
         stroke-linecap="round"
-        :class="[{ changed2: showNav }]"
+        :class="[{ changed2: showMenu }]"
       />
       <line
         id="Line1"
@@ -39,7 +40,7 @@
         stroke="white"
         stroke-width="3"
         stroke-linecap="round"
-        :class="[{ changed3: showNav }]"
+        :class="[{ changed3: showMenu }]"
       />
     </g>
   </svg>
@@ -47,15 +48,26 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-const showNav = ref(false);
+import { defineEmits } from "vue";
+import { defineProps } from "vue";
+const props = defineProps({
+  showMenu: Boolean,
+});
+const emit = defineEmits(["toggleMenu"]);
+
 const toggleNav = () => {
-  showNav.value = !showNav.value;
+  emit("toggleMenu");
 };
 </script>
 
 <style>
+.hamburgurIcon {
+  cursor: pointer;
+}
+
+/* animaition */
 line {
-  transition: transform 1s;
+  transition: transform 0.5s;
 }
 .changed3 {
   transform: translate(2px) rotate(45deg);
@@ -69,4 +81,6 @@ line {
 .changed2 {
   transform: translateX(-10px) translateY(5px) rotate(-45deg);
 }
+
+/* //animaition */
 </style>

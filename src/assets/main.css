@@ -1,5 +1,9 @@
 /* @import './base.css'; */
-
+:root {
+  --white-soft: #f8f8f8;
+  --black-soft: #3F3F3F;
+  --blue-light:#3677ac;
+}
 /* #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -10,17 +14,23 @@ html,
 body{
  margin : 0;
  padding : 0;
+ color: var(--white-soft);
 }
+
 a,
 .green {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+  color: var(--white-soft);
+  transition: 0.2s;
+}
+.bodyNoScroll{
+  height: 100%;
+  overflow: hidden;
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    color: var(--blue-light)
   }
 }
 
@@ -40,5 +50,17 @@ a,
 @media (width < 315px) {
   h1,h2,h2{
     width: 200px;
+  }
+}
+.nav__ul , .nav__background{
+  width: 30vw;
+  transition: transform 0.3s;
+  transform: translateX(35vw);
+}
+@media (width < 500px) {
+  .nav__ul , .nav__background{
+    width: 100vw;
+    transition: transform 0.3s;
+    transform: translateX(105vw);
   }
 }

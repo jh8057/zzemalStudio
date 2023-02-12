@@ -58,6 +58,7 @@ const toggleNav = () => {
 }
 .nav__ul--homeIcon {
   text-align: left;
+  padding-left: 15px;
 }
 .nav__ul li {
   display: block;

@@ -1,15 +1,24 @@
 <template>
   <ul :class="['nav__ul', { active: showMenu }]">
     <!-- <li>스튜디오 소개</li> -->
-    <li @click="toggleNav">
-      <router-link to="/reserve">예약하기</router-link>
+    <li class="nav__ul--homeIcon">
+      <router-link to="/" @click="toggleNav"
+        ><img
+          src="../../assets/Home.svg"
+          style="width: 30px; padding-top: 15px"
+      /></router-link>
     </li>
-    <li @click="toggleNav"><router-link to="/">포트폴리오</router-link></li>
-    <li @click="toggleNav"><router-link to="/">촬영 의뢰</router-link></li>
-    <li @click="toggleNav"><router-link to="/">대여</router-link></li>
-    <li @click="toggleNav"><router-link to="/">오시는길</router-link></li>
-    <li @click="toggleNav" class="nav__li--last">
-      <router-link to="/">인스타 로고/ 네이버 사이트</router-link>
+    <li>
+      <router-link to="/reserve" @click="toggleNav">예약하기</router-link>
+    </li>
+    <li><router-link to="/" @click="toggleNav">포트폴리오</router-link></li>
+    <li><router-link to="/" @click="toggleNav">촬영 의뢰</router-link></li>
+    <li><router-link to="/" @click="toggleNav">대여</router-link></li>
+    <li><router-link to="/" @click="toggleNav">오시는길</router-link></li>
+    <li class="nav__li--last">
+      <router-link to="/" @click="toggleNav"
+        >인스타 로고/ 네이버 사이트</router-link
+      >
     </li>
   </ul>
   <div :class="['nav__background', { active: showMenu }]"></div>
@@ -38,7 +47,7 @@ const toggleNav = () => {
   /* width: 30vw; move to css */
 
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   gap: 5%;
 
   margin: 0;
@@ -47,11 +56,13 @@ const toggleNav = () => {
   /* transition: transform 0.2s  move to css;
   transform: translateX(110vw);  move to css*/
 }
-
+.nav__ul--homeIcon {
+  text-align: left;
+}
 .nav__ul li {
   display: block;
   list-style: none;
-  cursor: pointer;
+  /* cursor: pointer; */
   line-height: 1.6;
   font-size: 1.5rem;
   gap: 20px;

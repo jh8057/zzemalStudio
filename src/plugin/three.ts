@@ -36,9 +36,9 @@ export default class Experience {
     // /** NOTE: camera controll */
     // const controls = new OrbitControls(camera, renderer.domElement);
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight * 1.2);
+    renderer.setSize(window.innerWidth, window.innerHeight);
     camera.position.setZ(480);
-    camera.position.setY(200);
+    camera.position.setY(250);
     camera.position.setX(0);
 
     // camera.rotation.x = 0;

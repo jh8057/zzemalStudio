@@ -1,6 +1,5 @@
 <template>
   <main>
-    <ThreeJs />
     <div class="center">
       <h1>S T U D I O _ D A R L Y</h1>
       <p>2023. 02 OPEN</p>
@@ -24,9 +23,7 @@
   </main>
 </template>
 
-<script setup lang="ts">
-import ThreeJs from "@/components/ThreeJs/three.vue";
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 main {
@@ -34,7 +31,6 @@ main {
   height: 100%;
 }
 .center {
-  color: white;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -47,7 +43,6 @@ main {
 .test {
   display: flex;
   margin: 0 auto;
-  color: white;
   flex-direction: column;
   place-items: center;
   justify-content: center;

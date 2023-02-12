@@ -74,10 +74,17 @@ const toggleNav = () => {
   z-index: 8;
   margin: 0;
   background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+
   /* transition: transform 0.2s move to css;
   transform: translateX(110vw); move to css*/
 }
+/* @supports not (backdrop-filter: blur(20px)) {
+  .nav__background {
+    background-color: black;
+  }
+} */
 
 .active {
   transform: translateX(0px);

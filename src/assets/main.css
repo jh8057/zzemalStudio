@@ -47,7 +47,7 @@ a,
   } */
 }
 
-@media (width < 315px) {
+@media  (max-width: 315px)  {
   h1,h2,h2{
     width: 200px;
   }
@@ -57,7 +57,7 @@ a,
   transition: transform 0.3s;
   transform: translateX(35vw);
 }
-@media (width < 500px) {
+@media  (max-width: 480px)  {
   .nav__ul , .nav__background{
     width: 100vw;
     transition: transform 0.3s;

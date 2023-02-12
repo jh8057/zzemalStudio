@@ -80,11 +80,11 @@ const toggleNav = () => {
   /* transition: transform 0.2s move to css;
   transform: translateX(110vw); move to css*/
 }
-/* @supports not (backdrop-filter: blur(20px)) {
+@supports not (backdrop-filter: blur(20px)) {
   .nav__background {
     background-color: black;
   }
-} */
+}
 
 .active {
   transform: translateX(0px);

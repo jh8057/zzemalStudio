@@ -1,6 +1,9 @@
 <template>
   <header>
-    <hamburgur-icon :showMenu="showMenu" @toggle-menu="toggleMenu" />
+    <div class="header__wrap">
+      <router-link to="/">DARLY LOGO</router-link>
+      <hamburgur-icon :showMenu="showMenu" @toggle-menu="toggleMenu" />
+    </div>
   </header>
   <nav>
     <menu-layer
@@ -9,6 +12,7 @@
       @toggle-menu="toggleMenu"
     />
   </nav>
+  <div class="topBlock"></div>
   <RouterView />
   <ThreeJs />
 </template>
@@ -34,9 +38,18 @@ const toggleMenu = () => {
 <style scoped>
 header {
   position: fixed;
-  top: 20px;
-  right: 15px;
   z-index: 10;
+  width: 100%;
+}
+.header__wrap {
+  display: flex;
+  height: 100%;
+  position: relative;
+  justify-content: space-between;
+  margin: 20px;
+}
+.topBlock {
+  height: 50px;
 }
 /* header {
   line-height: 1.5;

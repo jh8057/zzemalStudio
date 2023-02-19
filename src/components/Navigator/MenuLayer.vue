@@ -1,13 +1,5 @@
 <template>
   <ul :class="['nav__ul', { active: showMenu }]">
-    <!-- <li>스튜디오 소개</li> -->
-    <li class="nav__ul--homeIcon">
-      <router-link to="/" @click="toggleNav"
-        ><img
-          src="../../assets/Home.svg"
-          style="width: 30px; padding-top: 15px"
-      /></router-link>
-    </li>
     <li>
       <router-link to="/reserve" @click="toggleNav">예약하기</router-link>
     </li>
@@ -45,7 +37,7 @@ const toggleNav = () => {
   /* width: 30vw; move to css */
 
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   gap: 5%;
 
   margin: 0;
@@ -53,10 +45,6 @@ const toggleNav = () => {
   text-align: center;
   /* transition: transform 0.2s  move to css;
   transform: translateX(110vw);  move to css*/
-}
-.nav__ul--homeIcon {
-  text-align: left;
-  padding-left: 15px;
 }
 .nav__ul li {
   display: block;

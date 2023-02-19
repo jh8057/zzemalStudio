@@ -11,7 +11,8 @@
   font-weight: normal;
 } */
 html,
-body{
+body,
+p{
  margin : 0;
  padding : 0;
  color: var(--white-soft);

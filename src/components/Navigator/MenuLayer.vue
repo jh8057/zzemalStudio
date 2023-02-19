@@ -9,8 +9,12 @@
     <li><router-link to="/" @click="toggleNav">오시는길</router-link></li>
     <li class="nav__li--last">
       <router-link to="/" @click="toggleNav"
-        >인스타 로고/ 네이버 사이트</router-link
-      >
+        ><p>
+          <img src="@/assets/instaLogo.png" class="companyLogo" />
+          <span> DARLY 인스타</span>
+        </p>
+        카카오채널(1:1문의)
+      </router-link>
     </li>
   </ul>
   <div :class="['nav__background', { active: showMenu }]"></div>
@@ -78,6 +82,11 @@ const toggleNav = () => {
   transform: translateX(0px);
 }
 .nav__li--last {
-  padding: 50px;
+  padding-top: 30px;
+}
+
+.companyLogo {
+  width: 20px;
+  height: 20px;
 }
 </style>

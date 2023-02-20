@@ -37,7 +37,7 @@ main {
   justify-content: center;
   min-height: -webkit-fill-available;
   min-width: 100vw;
-  height: 100vh;
+  height: 85vh;
   align-items: center;
 }
 .test {

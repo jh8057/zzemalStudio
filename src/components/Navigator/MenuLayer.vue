@@ -10,13 +10,12 @@
       <router-link to="/location" @click="toggleNav">오시는길</router-link>
     </li>
     <li class="nav__li--last">
-      <router-link to="/" @click="toggleNav"
-        ><p>
-          <img src="@/assets/instaLogo.png" class="companyLogo" />
-          <span> DARLY 인스타</span>
-        </p>
-        카카오채널(1:1문의)
-      </router-link>
+      <a href="https://www.instagram.com/studio.darly/">
+        <img src="@/assets/instaLogo.png" class="companyLogo" />
+        <span> DARLY 인스타</span>
+      </a>
+      <br />
+      <a href="javascript:void(0)"> 카카오채널(1:1문의) </a>
     </li>
   </ul>
   <div :class="['nav__background', { active: showMenu }]"></div>

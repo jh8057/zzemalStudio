@@ -21,7 +21,6 @@
     </nav>
     <div class="topBlock"></div>
     <RouterView />
-
     <footer-bottom />
     <ThreeJs />
   </div>
@@ -32,7 +31,7 @@ import { ref } from "vue";
 import HamburgurIcon from "@/components/Navigator/HamburgurIcon.vue";
 import MenuLayer from "@/components/Navigator/MenuLayer.vue";
 import ThreeJs from "@/components/ThreeJs/three.vue";
-import FooterBottom from "@/components/Footer/footer.vue";
+import FooterBottom from "@/components/Footer/Footer.vue";
 const showMenu = ref(false);
 
 const toggleMenu = () => {

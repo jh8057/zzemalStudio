@@ -1,20 +1,30 @@
 <template>
-  <header>
-    <div class="header__wrap">
-      <router-link to="/">DARLY LOGO</router-link>
-      <hamburgur-icon :showMenu="showMenu" @toggle-menu="toggleMenu" />
-    </div>
-  </header>
-  <nav>
-    <menu-layer
-      v-show="showMenu"
-      :showMenu="showMenu"
-      @toggle-menu="toggleMenu"
-    />
-  </nav>
-  <div class="topBlock"></div>
-  <RouterView />
-  <ThreeJs />
+  <div class="content__wrap">
+    <header>
+      <div class="header__wrap">
+        <router-link to="/"
+          ><img src="@/assets/darlyIcon.png" class="darlyIcon"
+        /></router-link>
+        <hamburgur-icon
+          class="hamburgurIcon"
+          :showMenu="showMenu"
+          @toggle-menu="toggleMenu"
+        />
+      </div>
+    </header>
+    <nav>
+      <menu-layer
+        v-show="showMenu"
+        :showMenu="showMenu"
+        @toggle-menu="toggleMenu"
+      />
+    </nav>
+    <div class="topBlock"></div>
+    <RouterView />
+
+    <footer-bottom />
+    <ThreeJs />
+  </div>
 </template>
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
@@ -22,6 +32,7 @@ import { ref } from "vue";
 import HamburgurIcon from "@/components/Navigator/HamburgurIcon.vue";
 import MenuLayer from "@/components/Navigator/MenuLayer.vue";
 import ThreeJs from "@/components/ThreeJs/three.vue";
+import FooterBottom from "@/components/Footer/footer.vue";
 const showMenu = ref(false);
 
 const toggleMenu = () => {
@@ -36,21 +47,38 @@ const toggleMenu = () => {
 };
 </script>
 <style scoped>
+.content__wrap {
+  height: 100%;
+  width: 100%;
+}
 header {
   position: fixed;
   z-index: 10;
-  width: 100%;
+  top: 0;
+  width: 100vw;
 }
 .header__wrap {
   display: flex;
+
   height: 100%;
   position: relative;
   justify-content: space-between;
-  margin: 20px;
+  text-align: center;
+  margin: var(--head-margin);
 }
 .topBlock {
-  height: 50px;
+  height: calc(var(--head-height) + var(--head-margin));
 }
+
+.darlyIcon {
+  width: 100px;
+  height: var(--head-height);
+}
+.hamburgurIcon {
+  height: var(--head-height);
+  vertical-align: middle;
+}
+
 /* header {
   line-height: 1.5;
   max-height: 100vh;

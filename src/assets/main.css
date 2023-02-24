@@ -3,6 +3,8 @@
   --white-soft: #f8f8f8;
   --black-soft: #3F3F3F;
   --blue-light:#3677ac;
+  --head-height : 43px;
+  --head-margin: 20px;
 }
 /* #app {
   max-width: 1280px;
@@ -27,6 +29,11 @@ a,
 .bodyNoScroll{
   height: 100%;
   overflow: hidden;
+}
+
+ul{
+  padding: 0;
+  list-style: none;
 }
 
 @media (hover: hover) {
@@ -63,5 +70,15 @@ a,
     width: 100vw;
     transition: transform 0.3s;
     transform: translateX(105vw);
+  }
+
+  .footer__wrap{
+    flex-wrap: wrap;
+    justify-content : flex-start;
+    gap: 30px;
+    padding-left : 20px;
+  }
+  .hamburgurIcon{
+    /* margin-right: 20px; */
   }
 }

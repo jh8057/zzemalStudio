@@ -8,7 +8,7 @@
       </ul>
     </nav>
 
-    <article id="studioRental">
+    <section id="studioRental">
       <h1>스튜디오 렌탈 예약</h1>
       <h2>전체 대관(심플존 + 컨셉존)</h2>
       <ul>
@@ -92,11 +92,11 @@
         <li>2. 모든 조명 소등 및 에어컨 꺼져있는지 체크 부탁드립니다.</li>
       </ul>
       <p style="font-size: large">기타 문의사항 있으시면 편하게 문의주세요.</p>
-    </article>
+    </section>
     <calendar-table></calendar-table>
-    <!-- <article id="studioSnap">
+    <!-- <section id="studioSnap">
       <h1>촬영 의뢰</h1>
-    </article> -->
+    </section> -->
   </div>
 </template>
 
@@ -139,7 +139,7 @@ i {
   margin: 5px;
 }
 
-/* .reserve__wrap article {
+/* .reserve__wrap section {
   margin-bottom: 150px;
 } */
 </style>

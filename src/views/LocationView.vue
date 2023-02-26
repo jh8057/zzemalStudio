@@ -28,15 +28,13 @@
   </section>
 </template>
 
-<!-- 3. 실행 스크립트 -->
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-
+let daum: any;
 onMounted(() => {
   const mapEl = document.querySelector(".wrap_map");
-  console.log("map", mapEl);
   if (!mapEl) {
-    new daum.roughmap.Lander({
+    let DAUM = new daum.roughmap.Lander({
       timestamp: "1677429222324",
       key: "2dv2t",
       mapWidth: "640",

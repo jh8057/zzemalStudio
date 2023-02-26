@@ -1,6 +1,11 @@
 <template>
   <ul :class="['nav__ul', { active: showMenu }]">
     <li>
+      <router-link to="/" @click="toggleNav"
+        ><img src="@/assets/darlyIcon.png" class="darlyIcon"
+      /></router-link>
+    </li>
+    <li>
       <router-link to="/reserve" @click="toggleNav">예약하기</router-link>
     </li>
     <li><router-link to="/" @click="toggleNav">포트폴리오</router-link></li>
@@ -78,7 +83,6 @@ const toggleNav = () => {
     background-color: black;
   }
 }
-
 .active {
   transform: translateX(0px);
 }

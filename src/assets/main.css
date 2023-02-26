@@ -35,6 +35,11 @@ ul{
   list-style: none;
 }
 
+.darlyIcon {
+  width: 100px;
+  height: var(--head-height);
+}
+
 @media (hover: hover) {
   a:hover {
     color: var(--blue-light)
@@ -45,10 +50,6 @@ ul{
   body {
     display: flex;
     place-items: center;
-  }
-
-  .hamburgurIcon{
-    margin-right: 20px;
   }
 
   /* #app {

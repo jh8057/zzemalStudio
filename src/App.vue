@@ -12,14 +12,13 @@
         />
       </div>
     </header>
-    <nav>
+    <nav class="nav__wrap">
       <menu-layer
         v-show="showMenu"
         :showMenu="showMenu"
         @toggle-menu="toggleMenu"
       />
     </nav>
-    <div class="topBlock"></div>
     <main class="mainContents">
       <RouterView />
     </main>
@@ -52,37 +51,30 @@ const toggleMenu = () => {
   height: 100%;
   width: 100%;
 }
-header {
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  width: 100vw;
-}
 .header__wrap {
   display: flex;
-
   height: 100%;
   position: relative;
   justify-content: space-between;
   text-align: center;
-  margin: var(--head-margin);
-}
-.topBlock {
-  height: calc(var(--head-height) + var(--head-margin));
+  padding: var(--head-margin);
 }
 .mainContents {
   width: 100%;
   height: 100%;
 }
-.darlyIcon {
-  width: 100px;
-  height: var(--head-height);
-}
+
 .hamburgurIcon {
+  position: fixed;
+  z-index: 10;
+  right: 20px;
   height: var(--head-height);
   vertical-align: middle;
 }
-
+.nav__wrap {
+  position: fixed;
+  top: 0;
+}
 /* header {
   line-height: 1.5;
   max-height: 100vh;

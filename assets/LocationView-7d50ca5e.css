@@ -1,0 +1,1 @@
+.location__wrap{margin:auto;width:60%}.location__contents{display:flex;flex-direction:column;align-items:center;margin:auto}.location__buttonList{display:flex;flex-direction:row;gap:50px;margin-top:20px}.location__buttonList a{background-color:var(--blue-light);border-radius:7px;padding:11px}

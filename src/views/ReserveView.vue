@@ -93,7 +93,7 @@
       </ul>
       <p style="font-size: large">기타 문의사항 있으시면 편하게 문의주세요.</p>
     </article>
-
+    <calendar-table></calendar-table>
     <!-- <article id="studioSnap">
       <h1>촬영 의뢰</h1>
     </article> -->
@@ -101,6 +101,7 @@
 </template>
 
 <script setup lang="ts">
+import CalendarTable from "@/components/Reserve/CalendarTable.vue";
 // test
 </script>
 

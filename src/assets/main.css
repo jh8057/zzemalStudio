@@ -1,17 +1,16 @@
 /* @import './base.css'; */
 :root {
-  --white-soft: #f8f8f8;
+  --white-soft: #fbfaf5;
   --black-soft: #3F3F3F;
+  --blue-dark:#1034a6;
   --blue-light:#3677ac;
   --head-height : 43px;
   --head-margin: 20px;
 }
-/* #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1rem;
-  font-weight: normal;
-} */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 html,
 body,
 p{
@@ -48,6 +47,10 @@ ul{
     place-items: center;
   }
 
+  .hamburgurIcon{
+    margin-right: 20px;
+  }
+
   /* #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -77,8 +80,5 @@ ul{
     justify-content : flex-start;
     gap: 30px;
     padding-left : 20px;
-  }
-  .hamburgurIcon{
-    /* margin-right: 20px; */
   }
 }

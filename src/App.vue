@@ -20,7 +20,9 @@
       />
     </nav>
     <div class="topBlock"></div>
-    <RouterView />
+    <main class="mainContents">
+      <RouterView />
+    </main>
     <footer-bottom />
     <ThreeJs />
   </div>
@@ -68,7 +70,10 @@ header {
 .topBlock {
   height: calc(var(--head-height) + var(--head-margin));
 }
-
+.mainContents {
+  width: 100%;
+  height: 100%;
+}
 .darlyIcon {
   width: 100px;
   height: var(--head-height);

@@ -16,7 +16,7 @@
     </li>
     <li class="nav__li--last">
       <a href="https://www.instagram.com/studio.darly/">
-        <img src="@/assets/instaLogo.png" class="companyLogo" />
+        <img src="@/assets/instaLogo.png" class="IconSize" />
         <span> DARLY 인스타</span>
       </a>
       <br />
@@ -88,10 +88,5 @@ const toggleNav = () => {
 }
 .nav__li--last {
   padding-top: 30px;
-}
-
-.companyLogo {
-  width: 20px;
-  height: 20px;
 }
 </style>

@@ -8,7 +8,7 @@
   --gray-light : #D3D3D3;
   
   /* pixel */
-  --head-height : 43px;
+  --head-height : 25px;
   --head-margin: 20px;
   
 }
@@ -41,7 +41,7 @@ ul{
 }
 
 .darlyIcon {
-  width: 100px;
+  width: 70px;
   height: var(--head-height);
 }
 
@@ -89,7 +89,7 @@ ul{
   .footer__wrap{
     flex-wrap: wrap;
     justify-content : flex-start;
-    gap: 30px;
+    gap: 15px;
     padding-left : 20px;
   }
 }

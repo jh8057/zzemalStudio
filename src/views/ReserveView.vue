@@ -2,56 +2,67 @@
   <div class="reserve__wrap">
     <nav>
       <ul class="reserve__nav">
-        <li><a href="#studioRental">스튜디오 렌탈</a></li>
-        <li><a href="#studioSnap">촬영 의뢰</a></li>
-        <!-- <li>대여</li> -->
+        <li><a href="#studioRental">렌탈안내</a></li>
+        <li><a href="#studioSnap">예약신청</a></li>
       </ul>
     </nav>
 
-    <section id="studioRental">
-      <h1>스튜디오 렌탈 예약</h1>
-      <h2>전체 대관(심플존 + 컨셉존)</h2>
-      <ul>
-        <li>평일 1시간 : 25000원 <i>*3인 기준</i></li>
-        <li>주말 1시간 : 30000원 <i>*3인 기준</i></li>
-      </ul>
+    <section class="reserve__section">
+      <img
+        src="@/assets/reservePic.jpeg"
+        width="100%"
+        style="border-radius: 7px"
+      />
+      <div class="reserve__section--notice">
+        <h3 id="studioRental">전체 대관(심플존 + 컨셉존)</h3>
+        <ul>
+          <li>평일 1시간 : 25000원 <i>*3인 기준</i></li>
+          <li>주말 1시간 : 30000원 <i>*3인 기준</i></li>
+        </ul>
 
-      <ul class="reserve__notice">
-        <li>렌탈 스튜디오 최소 이용 시간은 2시간입니다.</li>
-        <li>기준 인원 외 인원 추가시 1인 시간 당 5000원이 추가됩니다.</li>
-        <li>
-          스튜디오 이용 시간은 촬영 준비 및 정리 시간이 모두 포함됩니다.(앞 타임
-          없을 경우 10분 전 입실 가능)
-        </li>
-      </ul>
-      <h3>예약 안내</h3>
-      <ul class="reserve__notice--num">
-        <li>1. 홈페이지 예약 페이지를 통해 신청해주세요.</li>
-        <li>
-          2. 예약 신청 후 12시간 내로 예약금 입금이 완료 되어야 예약 확정
-          됩니다.<br />
-          <div style="padding-left: 20px">
-            <i>*입금이 완료 되지 않았을 경우 자동으로 예약 취소됩니다.</i>
-            <h4 class="reserve__smallTitle">입금 계좌</h4>
-            우리은행 1002-229-545508 / 예금주 : 방민규
-            <h4 class="reserve__smallTitle">예약금</h4>
+        <ul class="reserve__notice">
+          <li>렌탈 스튜디오 최소 이용 시간은 2시간입니다.</li>
+          <li>기준 인원 외 인원 추가시 1인 시간 당 5000원이 추가됩니다.</li>
+          <li>
+            스튜디오 이용 시간은 촬영 준비 및 정리 시간이 모두 포함됩니다.(앞
+            타임 없을 경우 10분 전 입실 가능)
+          </li>
+        </ul>
+      </div>
+
+      <div class="reserve__section--notice">
+        <h3>예약 안내</h3>
+        <ul class="reserve__notice--num">
+          <li>1. 홈페이지 예약 페이지를 통해 신청해주세요.</li>
+          <li>
+            2. 예약 신청 후 12시간 내로 예약금 입금이 완료 되어야 예약 확정
+            됩니다.<br />
+            <div style="padding-left: 20px">
+              <i>*입금이 완료 되지 않았을 경우 자동으로 예약 취소됩니다.</i>
+              <h4 class="reserve__smallTitle">입금 계좌</h4>
+              우리은행 1002-229-545508 / 예금주 : 방민규
+              <h4 class="reserve__smallTitle">예약금</h4>
+              <ul class="reserve__notice">
+                <li>총 금액이 10만원 이하일 경우 : 전액 선금</li>
+                <li>총금액이 10만원 이상일 경우 : 예약금 10만원</li>
+              </ul>
+            </div>
+          </li>
+          <br />
+          <li>
+            3. 예약 날짜 변경은 이용 날짜의 7일 전까지 가능합니다.
             <ul class="reserve__notice">
-              <li>총 금액이 10만원 이하일 경우 : 전액 선금</li>
-              <li>총금액이 10만원 이상일 경우 : 예약금 10만원</li>
+              <li>8일 전 : 예약금 100% 환불</li>
+              <li>7일 전 : 예약금 50% 환불 혹은 일정 변경 가능</li>
+              <li>6일 전~당일 : 환불 불가, 날짜 변경 불가</li>
             </ul>
-          </div>
-        </li>
-        <br />
-        <li>
-          3. 예약 날짜 변경은 이용 날짜의 7일 전까지 가능합니다.
-          <ul class="reserve__notice">
-            <li>8일 전 : 예약금 100% 환불</li>
-            <li>7일 전 : 예약금 50% 환불 혹은 일정 변경 가능</li>
-            <li>6일 전~당일 : 환불 불가, 날짜 변경 불가</li>
-          </ul>
-        </li>
-      </ul>
-      <p></p>
+          </li>
+        </ul>
+
+        <div class="reserveButton">
+          <a href="http://kko.to/yUv0CvuRiu">예약하기 </a>
+        </div>
+      </div>
       <h3>이용 안내</h3>
       <h3>이용 시 안내사항</h3>
       <ul>
@@ -139,7 +150,19 @@ i {
   margin: 5px;
 }
 
-/* .reserve__wrap section {
-  margin-bottom: 150px;
-} */
+.reserve__section--notice {
+  margin-bottom: 50px;
+}
+
+.reserve__section--notice a {
+  position: relative;
+  background-color: var(--blue-light);
+  border-radius: 7px;
+  padding: 11px;
+}
+
+.reserveButton {
+  width: 100%;
+  margin-top: 30px;
+}
 </style>

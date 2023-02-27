@@ -38,7 +38,8 @@
   flex-direction: row;
   justify-content: space-evenly;
   margin-top: 120px;
-  margin-bottom: 30px;
+  padding: 20px;
+  background-color: rgba(106, 106, 106, 0.5);
 }
 
 .footer__list {

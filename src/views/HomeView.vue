@@ -4,22 +4,6 @@
       <h1>S T U D I O _ D A R L Y</h1>
       <p>2023. 02 OPEN</p>
     </div>
-    <div class="test">
-      <h2>느낌 보기 위한 사진</h2>
-      <img src="@/assets/testImage.jpeg" />
-    </div>
-    <div class="test">
-      <h2>느낌 보기 위한 사진2</h2>
-      <img src="@/assets/testImage2.jpeg" />
-    </div>
-    <div class="test">
-      <h2>느낌 보기 위한 사진3</h2>
-      <img src="@/assets/testImage3.jpeg" />
-    </div>
-    <div class="test" style="padding-bottom: 40px">
-      <h2>느낌 보기 위한 사진4</h2>
-      <img src="@/assets/testImage4.jpeg" />
-    </div>
   </main>
 </template>
 

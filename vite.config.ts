@@ -11,5 +11,5 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
-  base: "/zzemalStudio/",
+  base: "/zzemalStudio/", //aws배포시 주석해야됨
 });

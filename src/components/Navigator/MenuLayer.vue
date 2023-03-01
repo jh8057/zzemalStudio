@@ -6,9 +6,9 @@
       /></router-link>
     </li>
     <li>
-      <router-link to="/reserve" @click="toggleNav">예약하기</router-link>
+      <router-link to="/reserve" @click="toggleNav">예약 안내</router-link>
     </li>
-    <li><router-link to="/" @click="toggleNav">포트폴리오</router-link></li>
+    <li><router-link to="/" @click="toggleNav">예약 신청</router-link></li>
     <li><router-link to="/" @click="toggleNav">촬영 의뢰</router-link></li>
     <li><router-link to="/" @click="toggleNav">대여</router-link></li>
     <li>
@@ -17,7 +17,7 @@
     <li class="nav__li--last">
       <a href="https://www.instagram.com/studio.darly/">
         <img src="@/assets/instaLogo.png" class="IconSize" />
-        <span> DARLY 인스타</span>
+        <span> DARLY</span>
       </a>
       <br />
       <a href="javascript:void(0)"> 카카오채널(1:1문의) </a>

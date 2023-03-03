@@ -3,16 +3,14 @@
     <nav>
       <ul class="reserve__nav">
         <li><a href="#studioRental">렌탈안내</a></li>
-        <li><a href="#studioSnap">예약신청</a></li>
+        <li><router-link to="/">예약신청</router-link></li>
       </ul>
     </nav>
 
     <section class="reserve__section">
-      <img
-        src="@/assets/reservePic.jpeg"
-        width="100%"
-        style="border-radius: 7px"
-      />
+      <div class="reserve__mainPic">
+        <img src="@/assets/reservePic.jpeg" class="reserve__mainPic--pic" />
+      </div>
       <div class="reserve__section--notice">
         <h3 id="studioRental">전체 대관(심플존 + 컨셉존)</h3>
         <ul>
@@ -105,9 +103,6 @@
       <p style="font-size: large">기타 문의사항 있으시면 편하게 문의주세요.</p>
     </section>
     <calendar-table></calendar-table>
-    <!-- <section id="studioSnap">
-      <h1>촬영 의뢰</h1>
-    </section> -->
   </div>
 </template>
 
@@ -117,10 +112,10 @@ import CalendarTable from "@/components/Reserve/CalendarTable.vue";
 </script>
 
 <style>
-.reserve__wrap {
+/* .reserve__wrap {
   margin: 20px;
   justify-content: center;
-}
+} */
 .reserve__wrap p {
   margin: 5px;
 }
@@ -164,5 +159,12 @@ i {
 .reserveButton {
   width: 100%;
   margin-top: 30px;
+}
+.reserve__mainPic {
+  width: 100%;
+}
+.reserve__mainPic--pic {
+  width: 100%;
+  border-radius: 7px;
 }
 </style>

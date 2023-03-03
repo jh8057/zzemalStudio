@@ -58,6 +58,7 @@ const toggleMenu = () => {
   justify-content: space-between;
   text-align: center;
   padding: var(--head-margin);
+  z-index: 99;
 }
 .mainContents {
   width: 100%;
@@ -74,6 +75,7 @@ const toggleMenu = () => {
 .nav__wrap {
   position: fixed;
   top: 0;
+  z-index: 98;
 }
 /* header {
   line-height: 1.5;

@@ -33,6 +33,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import Swal from "sweetalert2";
+
 const copyLocation = () => {
   window.navigator.clipboard
     .writeText(
@@ -54,7 +55,7 @@ onMounted(() => {
   const mainContents = document.querySelector(".mainContents") as HTMLElement;
   let mapWidth = "300";
   let mapHeight = "300";
-  if (mainContents.clientWidth > 500) {
+  if (mainContents.clientWidth > 640) {
     mapWidth = "640";
     mapHeight = "360";
   }
@@ -97,7 +98,6 @@ onMounted(() => {
 .location__map {
   position: relative;
   margin-bottom: 20px;
-  z-index: -5;
 }
 
 .copyText {

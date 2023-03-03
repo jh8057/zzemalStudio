@@ -9,8 +9,8 @@
       <router-link to="/reserve" @click="toggleNav">예약 안내</router-link>
     </li>
     <li><router-link to="/" @click="toggleNav">예약 신청</router-link></li>
-    <li><router-link to="/" @click="toggleNav">촬영 의뢰</router-link></li>
-    <li><router-link to="/" @click="toggleNav">대여</router-link></li>
+    <!-- <li><router-link to="/" @click="toggleNav">촬영 의뢰</router-link></li> -->
+    <!-- <li><router-link to="/" @click="toggleNav">대여</router-link></li> -->
     <li>
       <router-link to="/location" @click="toggleNav">오시는길</router-link>
     </li>

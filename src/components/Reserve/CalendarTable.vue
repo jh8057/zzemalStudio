@@ -22,7 +22,6 @@ const calendarOptions: any = {
 <style>
 .calendarSection {
   width: 90%;
-  min-height: 500px;
   margin: auto;
 }
 </style>

@@ -58,11 +58,13 @@
         </ul>
 
         <div class="reserveButton">
-          <a href="http://kko.to/yUv0CvuRiu">예약하기 </a>
+          <a href="http://kko.to/yUv0CvuRiu" @click.prevent="sendEmail"
+            >예약하기
+          </a>
         </div>
       </div>
       <h3>이용 안내</h3>
-      <h3>이용 시 안내사항</h3>
+      <h4>이용 시 안내사항</h4>
       <ul>
         <li>
           1. 실내에서는 "실내화" 착용 부탁드립니다. 입구 오른쪽으로 신발장
@@ -93,7 +95,7 @@
         </li>
         <li>7. 건물 내 금연입니다.</li>
       </ul>
-      <h3>이용 후</h3>
+      <h4>이용 후</h4>
       <ul>
         <li>
           1. 이용이 끝난 후, 모든 가구 및 화분, 조명들은 원래 위치에 놓아주세요.
@@ -102,13 +104,20 @@
       </ul>
       <p style="font-size: large">기타 문의사항 있으시면 편하게 문의주세요.</p>
     </section>
-    <calendar-table></calendar-table>
   </div>
 </template>
 
 <script setup lang="ts">
-import CalendarTable from "@/components/Reserve/CalendarTable.vue";
-// test
+import axios from "axios";
+const sendEmail = async () => {
+  console.log("test");
+  let result = await axios.get(
+    "https://uyfw49m706.execute-api.ap-northeast-2.amazonaws.com/sendDarlyReserve",
+    { params: { name: "test", time: "100000" } }
+  );
+
+  console.log("result", result);
+};
 </script>
 
 <style>

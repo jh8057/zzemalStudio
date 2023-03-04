@@ -3,7 +3,7 @@
     <nav>
       <ul class="reserve__nav">
         <li><a href="#studioRental">렌탈안내</a></li>
-        <li><router-link to="/">예약신청</router-link></li>
+        <li><router-link to="/reserveWrite">예약신청</router-link></li>
       </ul>
     </nav>
 
@@ -58,9 +58,7 @@
         </ul>
 
         <div class="reserveButton">
-          <a href="http://kko.to/yUv0CvuRiu" @click.prevent="sendEmail"
-            >예약하기
-          </a>
+          <router-link to="/reserveWrite">예약 신청</router-link>
         </div>
       </div>
       <h3>이용 안내</h3>
@@ -107,18 +105,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import axios from "axios";
-const sendEmail = async () => {
-  console.log("test");
-  let result = await axios.get(
-    "https://uyfw49m706.execute-api.ap-northeast-2.amazonaws.com/sendDarlyReserve",
-    { params: { name: "test", time: "100000" } }
-  );
-
-  console.log("result", result);
-};
-</script>
+<script setup lang="ts"></script>
 
 <style>
 /* .reserve__wrap {

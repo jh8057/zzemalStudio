@@ -7,6 +7,7 @@
         class="location__map root_daum_roughmap root_daum_roughmap_landing"
       ></div>
       <p>
+        <br />
         위치 : 서울 강서구 염창동 184-8 어반카운티 지하 1층 B01호 스튜디오 달리
         <span @click="copyLocation" class="copyText">
           복사

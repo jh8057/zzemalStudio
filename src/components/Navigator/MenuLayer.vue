@@ -17,12 +17,15 @@
       <router-link to="/location" @click="toggleNav">오시는길</router-link>
     </li>
     <li class="nav__li--last">
-      <a href="https://www.instagram.com/studio.darly/">
-        <img src="@/assets/instaLogo.png" class="IconSize" />
+      <a href="https://www.instagram.com/studio.darly/" target="_blank">
+        <img src="@/assets/instaIcon.png" class="IconSize" />
         <span> DARLY</span>
       </a>
       <br />
-      <a href="javascript:void(0)"> 카카오채널(1:1문의) </a>
+      <a href="https://pf.kakao.com/_yxngWxj" target="_blank">
+        <img src="@/assets/kakaoChIcon.png" class="IconSize" />
+        카카오채널(1:1문의)
+      </a>
     </li>
   </ul>
   <div :class="['nav__background', { active: showMenu }]"></div>

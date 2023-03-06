@@ -17,7 +17,22 @@
       <h4>문의</h4>
       <ul>
         <li>0507-1335-9835</li>
-        <li>인스타/카카오채널</li>
+        <li>
+          <a
+            href="https://www.instagram.com/studio.darly/"
+            target="_blank"
+            class="footer__icon"
+          >
+            <img src="@/assets/instaIcon.png" class="IconSize" />
+          </a>
+          <a
+            href="https://pf.kakao.com/_yxngWxj"
+            target="_blank"
+            class="footer__icon"
+          >
+            <img src="@/assets/kakaoChIcon.png" class="IconSize" />
+          </a>
+        </li>
       </ul>
     </div>
     <div class="footer__list">
@@ -49,5 +64,9 @@
 
 .footer__list h4 {
   margin: 0px;
+}
+
+.footer__icon {
+  margin: 10px;
 }
 </style>

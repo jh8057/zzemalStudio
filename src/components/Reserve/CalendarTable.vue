@@ -1,15 +1,33 @@
 <template>
   <section class="calendarSection">
     <FullCalendar :options="calendarOptions" />
+    <div v-show="showInfo" class="info__detail" :style="infoStyle">
+      {{ infoData.innerText }}
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, computed, reactive } from "vue";
 import FullCalendar from "@fullcalendar/vue3";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import googleCalendarPlugin from "@fullcalendar/google-calendar";
+
+const infoData = reactive({
+  title: "",
+  clientX: 0,
+  clientY: 0,
+  innerText: "",
+});
+const showInfo = ref(false);
+
+const infoStyle = computed(() => {
+  return {
+    top: infoData.clientY + "px",
+    left: infoData.clientX + "px",
+  };
+});
 
 let height = 600;
 if (window.innerWidth < 500) {
@@ -19,7 +37,7 @@ if (window.innerWidth < 500) {
 const calendarOptions: any = {
   plugins: [dayGridPlugin, interactionPlugin, googleCalendarPlugin],
   initialView: "dayGridMonth",
-  eventDisplay: "block",
+  eventDisplay: "list-item",
   titleFormat: (date: any) => {
     const year = date.date.year;
     const month = date.date.month + 1;
@@ -33,6 +51,22 @@ const calendarOptions: any = {
   eventClick: (e: any) => {
     e.jsEvent.preventDefault();
   },
+  eventMouseEnter: (e: any) => {
+    showInfo.value = true;
+    infoData.title = e.event._def.title;
+    infoData.innerText = e.el.innerText;
+    infoData.clientX = e.jsEvent.clientX;
+    infoData.clientY = e.jsEvent.clientY;
+  },
+  eventMouseLeave: (e: any) => {
+    showInfo.value = false;
+  },
+  eventTimeFormat: {
+    hour: "numeric",
+    minute: "2-digit",
+    meridiem: false,
+  },
+  displayEventEnd: true,
 };
 </script>
 
@@ -64,5 +98,18 @@ const calendarOptions: any = {
 .fc-dayGridMonth-view,
 .fc-dayGridWeek-view {
   background-color: var(--white-soft);
+}
+
+.info__detail {
+  position: fixed;
+  color: var(--white-soft);
+  background: var(--blue-light);
+  padding: 5px;
+  border-radius: 4px;
+  z-index: 99;
+}
+
+.fc-daygrid-event-harness {
+  overflow: hidden;
 }
 </style>

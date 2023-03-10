@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "@fullcalendar/google-calendar": "^6.1.4",
-    "@toast-ui/editor": "^3.2.1",
     "@types/jsdom": "^20.0.1",
     "@types/node": "^18.14.2",
     "@types/three": "^0.149.0",

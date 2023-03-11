@@ -11,7 +11,7 @@
         위치 : 서울 강서구 염창동 184-8 어반카운티 지하 1층 B01호 스튜디오 달리
         <span @click="copyLocation" class="copyText">
           복사
-          <img src="@/assets/copyIcon.png" class="copyIcon" />
+          <img src="@/assets/Icons/copyIcon.png" class="copyIcon" />
         </span>
       </p>
 

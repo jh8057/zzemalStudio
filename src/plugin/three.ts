@@ -3,9 +3,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 //control camera on Web
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 // import { AxesHelper } from 'three';
-import mirror from "../assets/mirror.jpeg";
 import smoke from "../assets/smoke.png";
-// import water from '../assets/water.jpeg';
 
 export default class Experience {
   canvas: any;
@@ -126,18 +124,6 @@ export default class Experience {
     // const cylinder = new THREE.Mesh(geometry2, material2);
     // cylinder.position.set(0, -10, 10);
     // scene.add(cylinder);
-
-    //  /** NOTE: make Sphere */
-    // const sphereGeometry = new THREE.SphereGeometry(4);
-    // const sphereMaterial = new THREE.MeshStandardMaterial({
-    //   color: 0xffffff,
-    //   wireframe: false,
-    //   map: textureLoader.load(mirror),
-    // }); //light apply to standardMaterial
-    // const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    // sphere.position.set(0, 10, -10);
-    // scene.add(sphere);
-    // torus.castShadow = true;
 
     // /** NOTE: plane
     // const planeGeometry = new THREE.PlaneGeometry(30, 30);

@@ -2,7 +2,7 @@
   <ul :class="['nav__ul', { active: showMenu }]">
     <li>
       <router-link to="/" @click="toggleNav"
-        ><img src="@/assets/darlyIcon.png" class="darlyIcon"
+        ><img src="@/assets/Icons/darlyIcon.png" class="darlyIcon"
       /></router-link>
     </li>
     <li>
@@ -18,12 +18,12 @@
     </li>
     <li class="nav__li--last">
       <a href="https://www.instagram.com/studio.darly/" target="_blank">
-        <img src="@/assets/instaIcon.png" class="IconSize" />
+        <img src="@/assets/Icons/instaIcon.png" class="IconSize" />
         <span> DARLY</span>
       </a>
       <br />
       <a href="https://pf.kakao.com/_yxngWxj" target="_blank">
-        <img src="@/assets/kakaoChIcon.png" class="IconSize" />
+        <img src="@/assets/Icons/kakaoChIcon.png" class="IconSize" />
         카카오채널(1:1문의)
       </a>
     </li>

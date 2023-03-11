@@ -3,7 +3,7 @@
     <header>
       <div class="header__wrap">
         <router-link to="/"
-          ><img src="@/assets/darlyIcon.png" class="darlyIcon"
+          ><img src="@/assets/Icons/darlyIcon.png" class="darlyIcon"
         /></router-link>
         <hamburgur-icon
           class="hamburgurIcon"

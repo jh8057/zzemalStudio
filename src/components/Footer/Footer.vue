@@ -23,14 +23,14 @@
             target="_blank"
             class="footer__icon"
           >
-            <img src="@/assets/instaIcon.png" class="IconSize" />
+            <img src="@/assets/Icons/instaIcon.png" class="IconSize" />
           </a>
           <a
             href="https://pf.kakao.com/_yxngWxj"
             target="_blank"
             class="footer__icon"
           >
-            <img src="@/assets/kakaoChIcon.png" class="IconSize" />
+            <img src="@/assets/Icons/kakaoChIcon.png" class="IconSize" />
           </a>
         </li>
       </ul>

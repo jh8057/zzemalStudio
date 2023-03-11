@@ -9,7 +9,10 @@
 
     <section class="reserve__section">
       <div class="reserve__mainPic">
-        <img src="@/assets/reservePic.jpeg" class="reserve__mainPic--pic" />
+        <img
+          src="@/assets/Reserve/reservePic.jpeg"
+          class="reserve__mainPic--pic"
+        />
       </div>
       <div class="reserve__section--notice">
         <h3 id="studioRental">전체 대관(심플존 + 컨셉존)</h3>

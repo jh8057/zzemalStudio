@@ -2,7 +2,7 @@
   <section class="calendarSection">
     <FullCalendar :options="calendarOptions" />
     <div v-show="showInfo" class="info__detail" :style="infoStyle">
-      {{ infoData.innerText }}
+      {{ infoText }}
     </div>
   </section>
 </template>
@@ -21,6 +21,12 @@ const infoData = reactive({
   innerText: "",
 });
 const showInfo = ref(false);
+
+const infoText = computed(() => {
+  return infoData.innerText.indexOf("*") > -1
+    ? infoData.innerText
+    : infoData.innerText + infoData.title;
+});
 
 const infoStyle = computed(() => {
   return {
@@ -64,7 +70,7 @@ const calendarOptions: any = {
   eventTimeFormat: {
     hour: "numeric",
     minute: "2-digit",
-    meridiem: false,
+    meridiem: "short",
   },
   displayEventEnd: true,
 };

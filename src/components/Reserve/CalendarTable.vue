@@ -1,7 +1,7 @@
 <template>
   <section class="calendarSection">
     <FullCalendar :options="calendarOptions" />
-    <div v-show="showInfo" class="info__detail" :style="infoStyle">
+    <div class="info__detail">
       {{ infoText }}
     </div>
   </section>
@@ -16,23 +16,13 @@ import googleCalendarPlugin from "@fullcalendar/google-calendar";
 
 const infoData = reactive({
   title: "",
-  clientX: 0,
-  clientY: 0,
   innerText: "",
 });
-const showInfo = ref(false);
 
 const infoText = computed(() => {
   return infoData.innerText.indexOf("*") > -1
     ? infoData.innerText
     : infoData.innerText + infoData.title;
-});
-
-const infoStyle = computed(() => {
-  return {
-    top: infoData.clientY + "px",
-    left: infoData.clientX + "px",
-  };
 });
 
 let height = 600;
@@ -54,18 +44,24 @@ const calendarOptions: any = {
     right: "prev,next",
   },
   height,
+  // events: [
+  //   {
+  //     title: "a",
+  //     start: "2023-03-18T12:30:00",
+  //     end: "2023-03-18T14:30:00",
+  //   },
+  //   {
+  //     title: "SimulatorName",
+  //     start: "2023-03-17T12:30:00",
+  //     end: "2023-03-17T14:30:00",
+  //   },
+  // ],
   eventClick: (e: any) => {
     e.jsEvent.preventDefault();
   },
   eventMouseEnter: (e: any) => {
-    showInfo.value = true;
     infoData.title = e.event._def.title;
     infoData.innerText = e.el.innerText;
-    infoData.clientX = e.jsEvent.clientX;
-    infoData.clientY = e.jsEvent.clientY;
-  },
-  eventMouseLeave: (e: any) => {
-    showInfo.value = false;
   },
   eventTimeFormat: {
     hour: "numeric",
@@ -107,7 +103,6 @@ const calendarOptions: any = {
 }
 
 .info__detail {
-  position: fixed;
   color: var(--white-soft);
   background: var(--blue-light);
   padding: 5px;

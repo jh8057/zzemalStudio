@@ -2,7 +2,7 @@
   <main>
     <div class="center">
       <h1>S T U D I O _ D A R L Y</h1>
-      <p>2023. 02 OPEN</p>
+      <p>스튜디오 달리</p>
     </div>
   </main>
 </template>

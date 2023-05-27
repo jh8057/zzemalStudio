@@ -1,5 +1,7 @@
 <template>
-  <main></main>
+  <main>
+    <scroll-picture />
+  </main>
 </template>
 
 <script setup lang="ts">

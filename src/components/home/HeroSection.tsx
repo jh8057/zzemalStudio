@@ -41,7 +41,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.9 }}
           className="mt-8 text-xs sm:text-sm text-muted font-light tracking-[0.15em] uppercase"
         >
-          Portrait &middot; Profile &middot; ID Photo
+          증명사진 · 여권사진 · 프로필 촬영
         </motion.p>
 
         <motion.div

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { SERVICES } from "@/lib/constants";
 
@@ -23,7 +24,7 @@ export default function ServicesSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
-          {SERVICES.map((service, i) => (
+          {SERVICES.slice(0, 3).map((service, i) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0 }}
@@ -47,6 +48,22 @@ export default function ServicesSection() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mt-12"
+        >
+          <Link
+            href="/reserve/"
+            className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted hover:text-foreground transition-colors duration-300"
+          >
+            전체 상품 보기
+            <span className="w-8 h-px bg-current" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

@@ -23,10 +23,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ko_KR",
+    url: "https://studiodarly.com",
     siteName: "스튜디오 달리",
     title: "스튜디오 달리 | 증명사진 · 여권사진 · 프로필 촬영",
     description:
       "서울 강서구 염창동에 위치한 전문 촬영 스튜디오. 합리적인 가격에 전문 촬영을 만나보세요.",
+    images: [
+      {
+        url: "https://studiodarly.com/logo.jpeg",
+        width: 800,
+        height: 800,
+        alt: "스튜디오 달리",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "스튜디오 달리 | 증명사진 · 여권사진 · 프로필 촬영",
+    description:
+      "서울 강서구 염창동에 위치한 전문 촬영 스튜디오. 합리적인 가격에 전문 촬영을 만나보세요.",
+    images: ["https://studiodarly.com/logo.jpeg"],
   },
 };
 

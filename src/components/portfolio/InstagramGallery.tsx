@@ -14,7 +14,7 @@ export default function InstagramGallery() {
         <iframe
           src="https://www.instagram.com/studio.darly/embed/"
           className="w-full border-0"
-          height="750"
+          style={{ height: "clamp(370px, 65vw, 750px)" }}
           scrolling="no"
           loading="lazy"
           title="Studio Darly Instagram Gallery"

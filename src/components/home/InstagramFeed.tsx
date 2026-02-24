@@ -33,7 +33,7 @@ export default function InstagramFeed() {
             <iframe
               src="https://www.instagram.com/studio.darly/embed/"
               className="w-full border-0"
-              height="650"
+              style={{ height: "clamp(370px, 65vw, 700px)" }}
               scrolling="no"
               loading="lazy"
               title="Studio Darly Instagram"

@@ -1,0 +1,100 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Studio Darly API
+
+Globals:
+  Function:
+    Runtime: nodejs20.x
+    Timeout: 10
+    MemorySize: 256
+    Environment:
+      Variables:
+        TABLE_NAME: !Ref ReservationsTable
+        ADMIN_EMAIL: !Ref AdminEmail
+        FROM_EMAIL: !Ref FromEmail
+        ADMIN_PASSWORD_HASH: !Ref AdminPasswordHash
+        JWT_SECRET: !Ref JwtSecret
+
+Parameters:
+  AdminEmail:
+    Type: String
+    Default: ""
+  FromEmail:
+    Type: String
+    Default: ""
+  AdminPasswordHash:
+    Type: String
+    Description: "SHA-256 hash of admin password"
+    NoEcho: true
+  JwtSecret:
+    Type: String
+    NoEcho: true
+
+Resources:
+  ReservationsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: DarlyReservations
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+
+  ReservationsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: reservations.handler
+      CodeUri: .
+      Events:
+        CreateReservation:
+          Type: Api
+          Properties:
+            Path: /reservations
+            Method: POST
+        ReservationOptions:
+          Type: Api
+          Properties:
+            Path: /reservations
+            Method: OPTIONS
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ReservationsTable
+        - SESCrudPolicy:
+            IdentityName: !Ref FromEmail
+
+  AdminFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: admin.handler
+      CodeUri: .
+      Events:
+        Login:
+          Type: Api
+          Properties:
+            Path: /admin/login
+            Method: POST
+        ListReservations:
+          Type: Api
+          Properties:
+            Path: /admin/reservations
+            Method: GET
+        UpdateReservation:
+          Type: Api
+          Properties:
+            Path: /admin/reservations/{id}
+            Method: PATCH
+        AdminOptions:
+          Type: Api
+          Properties:
+            Path: /admin/{proxy+}
+            Method: OPTIONS
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ReservationsTable
+
+Outputs:
+  ApiUrl:
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod"

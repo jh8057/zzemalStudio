@@ -1,32 +1,39 @@
-name: Deployment to Github Pages
+name: Deploy to S3 + CloudFront
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Set up Node.js
-        uses: actions/setup-node@master
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 20
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: npm run build
-        env:
-          NODE_ENV: production
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v2.5.0
-        env:
-          PERSONAL_TOKEN: ${{secrets.GH_TOKEN}}
-          PUBLISH_BRANCH: master
-          PUBLISH_DIR: ./dist
-          SCRIPT_MODE: true
-          CALENDAR_KEY: ${{secrets.CALENDAR_KEY}}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      - name: Sync to S3
+        run: aws s3 sync out/ s3://${{ secrets.S3_BUCKET }} --delete
+
+      - name: Invalidate CloudFront
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"

@@ -12,8 +12,6 @@ Globals:
         TABLE_NAME: !Ref ReservationsTable
         ADMIN_EMAIL: !Ref AdminEmail
         FROM_EMAIL: !Ref FromEmail
-        ADMIN_PASSWORD_HASH: !Ref AdminPasswordHash
-        JWT_SECRET: !Ref JwtSecret
 
 Parameters:
   AdminEmail:
@@ -22,13 +20,6 @@ Parameters:
   FromEmail:
     Type: String
     Default: ""
-  AdminPasswordHash:
-    Type: String
-    Description: "SHA-256 hash of admin password"
-    NoEcho: true
-  JwtSecret:
-    Type: String
-    NoEcho: true
 
 Resources:
   ReservationsTable:
@@ -64,36 +55,6 @@ Resources:
             TableName: !Ref ReservationsTable
         - SESCrudPolicy:
             IdentityName: !Ref FromEmail
-
-  AdminFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      Handler: admin.handler
-      CodeUri: .
-      Events:
-        Login:
-          Type: Api
-          Properties:
-            Path: /admin/login
-            Method: POST
-        ListReservations:
-          Type: Api
-          Properties:
-            Path: /admin/reservations
-            Method: GET
-        UpdateReservation:
-          Type: Api
-          Properties:
-            Path: /admin/reservations/{id}
-            Method: PATCH
-        AdminOptions:
-          Type: Api
-          Properties:
-            Path: /admin/{proxy+}
-            Method: OPTIONS
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref ReservationsTable
 
 Outputs:
   ApiUrl:

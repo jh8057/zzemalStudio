@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SERVICES, PRICING } from "@/lib/constants";
+import { SERVICES } from "@/lib/constants";
 
 export default function ServicesSection() {
   return (
@@ -42,7 +42,7 @@ export default function ServicesSection() {
                 {service.description}
               </p>
               <p className="text-xs text-foreground/50 tracking-wide">
-                {PRICING.weekday.priceFormatted} ~
+                {service.startingPrice}
               </p>
             </motion.div>
           ))}

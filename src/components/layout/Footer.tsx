@@ -46,6 +46,14 @@ export default function Footer() {
                   className="rounded-md"
                 />
               </a>
+              <a
+                href={URLS.blog}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-50 hover:opacity-100 transition-opacity text-xs uppercase tracking-[0.1em] text-foreground/60 self-center"
+              >
+                Blog
+              </a>
             </div>
           </div>
 
@@ -82,6 +90,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>{STUDIO.consultingHours}</li>
+              <li className="text-foreground/40 text-xs">{STUDIO.closedDay}</li>
               <li className="pt-2 text-foreground/70 font-medium">
                 {STUDIO.bank.name} {STUDIO.bank.account}
                 <br />
